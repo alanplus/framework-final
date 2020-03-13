@@ -7,6 +7,7 @@ import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.alan.common.AndroidTools;
+import com.alan.common.CommonConfig;
 import com.alan.common.Logger;
 import com.alan.common.exception.NeverCrash;
 import com.alan.framework.base.activity.IActivityListener;
@@ -20,7 +21,7 @@ import com.alan.framework.base.state.view.CommonLoadingView;
  * 时 间：2020-03-13
  * 简 述：<功能简述>
  */
-public class BaseApplication extends MultiDexApplication {
+public class BaseApplication extends MultiDexApplication implements CommonConfig.ICommonConfig, NeverCrash.CrashHandler {
 
     public static BaseApplication app;
 
@@ -28,25 +29,18 @@ public class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         app = this;
+        initCommonConfig();
         update();
         initNeverCrash();
     }
 
+    protected void initCommonConfig() {
+        CommonConfig.init(this);
+    }
+
     protected void initNeverCrash() {
-        NeverCrash.init(new NeverCrash.CrashHandler() {
-            @Override
-            public void uncaughtException(Thread t, Throwable e) {
-                onCatchException(e);
-            }
-        });
+        NeverCrash.init(this);
     }
-
-
-    protected void onCatchException(Throwable e) {
-        Logger.d(Log.getStackTraceString(e));
-
-    }
-
 
     protected void update() {
         int version = getShareSystemVersion();
@@ -58,7 +52,6 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     protected void onUpdate() {
-
 
     }
 
@@ -103,5 +96,20 @@ public class BaseApplication extends MultiDexApplication {
      */
     public IFailureView getIFailureView(Context context) {
         return new CommonFailureView(context);
+    }
+
+    @Override
+    public boolean isDebug() {
+        return false;
+    }
+
+    @Override
+    public String getTag() {
+        return "alan_framework";
+    }
+
+    @Override
+    public void uncaughtException(Thread t, Throwable e) {
+        Logger.d(Log.getStackTraceString(e));
     }
 }
