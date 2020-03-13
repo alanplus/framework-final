@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class BaseRecycleAdapter<T> extends RecyclerView.Adapter {
 
-    private List<T> list;
-    private Context context;
+    protected List<T> list;
+    protected Context context;
 
     public BaseRecycleAdapter(Context context, List<T> list) {
         this.context = context;
@@ -45,4 +45,11 @@ public class BaseRecycleAdapter<T> extends RecyclerView.Adapter {
         }
     }
 
+    public List<T> getList() {
+        return list;
+    }
+
+    public Context getContext() {
+        return context;
+    }
 }
