@@ -1,7 +1,8 @@
 package com.alan.framework.base;
 
-import com.android.base.state.IBaseStateView;
-import com.android.base.state.StateHelper;
+
+import com.alan.framework.base.state.IBaseStateView;
+import com.alan.framework.base.state.StateHelper;
 
 /**
  * @author Alan
