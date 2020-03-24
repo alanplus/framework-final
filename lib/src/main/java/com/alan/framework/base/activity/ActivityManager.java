@@ -23,7 +23,7 @@ public class ActivityManager {
 
     public static void onCreate(Activity activity) {
         activityList.add(activity);
-        if (BaseApplication.app.getActivityListener()!= null) {
+        if (BaseApplication.app.getActivityListener() != null) {
             BaseApplication.app.getActivityListener().onCreate(activity);
         }
     }
@@ -69,10 +69,13 @@ public class ActivityManager {
         }
     }
 
-    public static void finishOther(Class<? extends Activity>... list){
+    public static void finishOther(Class<? extends Activity>... list) {
+        if (null == list || list.length == 0) {
+            return;
+        }
         List<Class<? extends Activity>> classes = Arrays.asList(list);
         for (Activity activity : activityList) {
-            if(classes.contains(activity.getClass())){
+            if (classes.contains(activity.getClass())) {
                 continue;
             }
             try {
@@ -83,9 +86,9 @@ public class ActivityManager {
         }
     }
 
-    public static void startSimpleActivity(Context context,Class<? extends Activity> clazz){
+    public static void startSimpleActivity(Context context, Class<? extends Activity> clazz) {
         Intent intent = new Intent();
-        intent.setClass(context,clazz);
+        intent.setClass(context, clazz);
         context.startActivity(intent);
     }
 
