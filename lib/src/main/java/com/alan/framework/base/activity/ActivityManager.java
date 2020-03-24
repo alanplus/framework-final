@@ -6,6 +6,7 @@ import com.alan.common.Logger;
 import com.alan.framework.BaseApplication;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -58,6 +59,20 @@ public class ActivityManager {
 
     public static void finishAll() {
         for (Activity activity : activityList) {
+            try {
+                activity.finish();
+            } catch (Exception e) {
+                Logger.error(e);
+            }
+        }
+    }
+
+    public static void finishOther(Class<? extends Activity>... list){
+        List<Class<? extends Activity>> classes = Arrays.asList(list);
+        for (Activity activity : activityList) {
+            if(classes.contains(activity.getClass())){
+                continue;
+            }
             try {
                 activity.finish();
             } catch (Exception e) {
