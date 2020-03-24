@@ -14,6 +14,7 @@
     <attr name="status_bar_color" format="color|reference" />
     <!-- 状态栏文字颜色 -->
     <attr name="status_bar_text_is_white" format="boolean" />
+    <attr name="home_tab_menu" format="reference" />
 
 
     <declare-styleable name="SmileyLoadingView">
