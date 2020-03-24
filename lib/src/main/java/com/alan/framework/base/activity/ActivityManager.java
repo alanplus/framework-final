@@ -1,6 +1,8 @@
 package com.alan.framework.base.activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 
 import com.alan.common.Logger;
 import com.alan.framework.BaseApplication;
@@ -79,6 +81,12 @@ public class ActivityManager {
                 Logger.error(e);
             }
         }
+    }
+
+    public static void startSimpleActivity(Context context,Class<? extends Activity> clazz){
+        Intent intent = new Intent();
+        intent.setClass(context,clazz);
+        context.startActivity(intent);
     }
 
 }
