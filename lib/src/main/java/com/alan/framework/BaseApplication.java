@@ -29,6 +29,7 @@ public class BaseApplication extends MultiDexApplication implements CommonConfig
     public void onCreate() {
         super.onCreate();
         app = this;
+        onPreOnCreate();
         initCommonConfig();
         update();
         initNeverCrash();
@@ -46,12 +47,16 @@ public class BaseApplication extends MultiDexApplication implements CommonConfig
         int version = getShareSystemVersion();
         int versionCode = AndroidTools.getVersionCode(this);
         if (versionCode > version) {
-            onUpdate();
+            onUpdate(version, versionCode);
             updateSystemVersion(versionCode);
         }
     }
 
-    protected void onUpdate() {
+    protected void onPreOnCreate() {
+
+    }
+
+    protected void onUpdate(int oldVersion, int currentVersion) {
 
     }
 
@@ -110,6 +115,6 @@ public class BaseApplication extends MultiDexApplication implements CommonConfig
 
     @Override
     public void uncaughtException(Thread t, Throwable e) {
-        Logger.d(Log.getStackTraceString(e));
+        Log.e("error", Log.getStackTraceString(e));
     }
 }
