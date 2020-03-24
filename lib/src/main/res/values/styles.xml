@@ -16,6 +16,7 @@
         <item name="title_bar_right_text_size">16dp</item>
         <item name="status_bar_color">?title_bar_color</item>
         <item name="status_bar_text_is_white">false</item>
+        <item name="menu_item_text_color">@android:color/black</item>
     </style>
 
     <style name="customDialog" parent="android:style/Theme.Dialog">
