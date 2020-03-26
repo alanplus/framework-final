@@ -1,6 +1,8 @@
 package com.alan.framework.base;
 
 
+import android.content.Context;
+
 import com.alan.framework.base.state.IBaseStateView;
 import com.alan.framework.base.state.StateHelper;
 
@@ -12,9 +14,11 @@ import com.alan.framework.base.state.StateHelper;
 public class BasePresenter {
 
     private IBaseStateView iBaseStateView;
+    private Context context;
 
-    public BasePresenter(IBaseStateView iBaseStateView) {
+    public BasePresenter(Context context, IBaseStateView iBaseStateView) {
         this.iBaseStateView = iBaseStateView;
+        this.context = context;
     }
 
     public void showToast(String text) {
@@ -41,11 +45,11 @@ public class BasePresenter {
         showLoadingState(StateHelper.DEFAULT_LOADING_TEXT);
     }
 
-    public void showLoadingDialog(String text){
+    public void showLoadingDialog(String text) {
         this.iBaseStateView.showLoadingDialog(text);
     }
 
-    public void showLoadingDialog(){
+    public void showLoadingDialog() {
         showLoadingDialog(StateHelper.DEFAULT_LOADING_TEXT);
     }
 
