@@ -11,34 +11,34 @@ import com.alan.framework.base.state.StateHelper;
  * 时 间：2020-01-17
  * 简 述：<功能简述>
  */
-public class BasePresenter {
+public class BasePresenter<T extends IBaseStateView> {
 
-    private IBaseStateView iBaseStateView;
-    private Context context;
+    protected T mView;
+    protected Context context;
 
-    public BasePresenter(Context context, IBaseStateView iBaseStateView) {
-        this.iBaseStateView = iBaseStateView;
+    public BasePresenter(Context context, T view) {
+        this.mView = view;
         this.context = context;
     }
 
     public void showToast(String text) {
-        this.iBaseStateView.showToast(text);
+        this.mView.showToast(text);
     }
 
     public void showSuccess() {
-        this.iBaseStateView.showSuccessState();
+        this.mView.showSuccessState();
     }
 
     public void showFailure(String text, boolean isRetry) {
-        this.iBaseStateView.showFailureState(text, isRetry);
+        this.mView.showFailureState(text, isRetry);
     }
 
     public void showFailure() {
-        this.iBaseStateView.showFailureState(StateHelper.DEFAULT_LOADING_FAILURE_TEXT, true);
+        this.mView.showFailureState(StateHelper.DEFAULT_LOADING_FAILURE_TEXT, true);
     }
 
     public void showLoadingState(String text) {
-        this.iBaseStateView.showLoadingState(text);
+        this.mView.showLoadingState(text);
     }
 
     public void showLoadingState() {
@@ -46,7 +46,7 @@ public class BasePresenter {
     }
 
     public void showLoadingDialog(String text) {
-        this.iBaseStateView.showLoadingDialog(text);
+        this.mView.showLoadingDialog(text);
     }
 
     public void showLoadingDialog() {
