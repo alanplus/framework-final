@@ -15,7 +15,8 @@
         <com.alan.framework.view.loading.LoadDialogView
             android:id="@+id/loading_img"
             android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:layout_height="60dp"
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/text"

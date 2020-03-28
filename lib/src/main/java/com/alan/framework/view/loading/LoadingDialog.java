@@ -22,7 +22,7 @@ public class LoadingDialog extends Dialog implements LoadDialogView.OnFinishList
     private TextView textView;
 
     public LoadingDialog(@NonNull Context context) {
-        super(context);
+        super(context, R.style.customDialog);
     }
 
 
@@ -63,7 +63,7 @@ public class LoadingDialog extends Dialog implements LoadDialogView.OnFinishList
             textView.setText(text);
             if (success) {
                 mLoadView.showSuccess();
-            } else{
+            } else {
                 mLoadView.showError();
             }
         }
