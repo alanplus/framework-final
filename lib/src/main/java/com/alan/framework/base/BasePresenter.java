@@ -2,6 +2,7 @@ package com.alan.framework.base;
 
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.alan.framework.base.state.IBaseStateView;
 import com.alan.framework.base.state.StateHelper;
@@ -19,6 +20,11 @@ public class BasePresenter<T extends IBaseStateView> {
     public BasePresenter(Context context, T view) {
         this.mView = view;
         this.context = context;
+    }
+
+    public void init(Intent intent) {
+
+
     }
 
     public void showToast(String text) {
