@@ -1,0 +1,9 @@
+<resources>
+
+
+    <!-- 主界面 -->
+
+    <dimen name="pic_clip_frame_top_margin">10dp</dimen>
+
+
+</resources>
