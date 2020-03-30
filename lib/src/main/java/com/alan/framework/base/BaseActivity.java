@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -30,18 +31,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentId());
+        stateHelper = new StateHelper(this, (ViewGroup) findViewById(android.R.id.content), this);
         ActivityManager.onCreate(this);
         initStatusBar();
         initView();
 
     }
 
-    @Override
-    public void setContentView(View view) {
-        super.setContentView(view);
-        stateHelper = new StateHelper(this, (ViewGroup) view, this);
-
-    }
 
     protected void initStatusBar() {
         int bgColor = ResourceUtils.getColorFromTheme(this, R.attr.status_bar_color, Color.WHITE);
