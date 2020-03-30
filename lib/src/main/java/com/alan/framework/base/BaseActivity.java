@@ -31,7 +31,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentId());
-        stateHelper = new StateHelper(this, (ViewGroup) findViewById(android.R.id.content), this);
+        ViewGroup viewGroup = (ViewGroup) ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
+        stateHelper = new StateHelper(this, viewGroup, this);
         ActivityManager.onCreate(this);
         initStatusBar();
         initView();
