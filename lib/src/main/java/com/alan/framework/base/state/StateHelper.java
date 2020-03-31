@@ -132,6 +132,13 @@ public class StateHelper implements IBaseStateView {
         ToastManager.getInstance().showToast(context, text);
     }
 
+    @Override
+    public void setRetryListener(View.OnClickListener onClickListener) {
+        if (null != iStateView && iStateView.getRetryView() != null) {
+            iStateView.getRetryView().setOnClickListener(onClickListener);
+        }
+    }
+
     public static LoadingDialog showLoadingDialog(Context context, String text) {
         LoadingDialog loadingDialog = new LoadingDialog(context);
         loadingDialog.setText(text);

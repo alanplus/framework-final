@@ -1,5 +1,7 @@
 package com.alan.framework.base.state;
 
+import android.view.View;
+
 /**
  * @author Alan
  * 时 间：2019-11-21
@@ -20,4 +22,6 @@ public interface IBaseStateView {
     void dismissLoadingDialog(boolean isSuccess);
 
     void showToast(String text);
+
+    void setRetryListener(View.OnClickListener onClickListener);
 }
