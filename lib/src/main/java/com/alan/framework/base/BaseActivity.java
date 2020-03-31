@@ -105,6 +105,10 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
         stateHelper.showLoadingState();
     }
 
+    public void showLoadingDialog() {
+        showLoadingDialog("正在加载");
+    }
+
     @Override
     public void showLoadingState(String text) {
         stateHelper.showLoadingState(text);
@@ -128,7 +132,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
 
     @Override
     public void showSuccessState() {
-        stateHelper.showLoadingState();
+        stateHelper.showSuccessState();
     }
 
     @Override

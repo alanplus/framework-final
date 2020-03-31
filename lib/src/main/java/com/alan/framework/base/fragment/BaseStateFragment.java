@@ -1,5 +1,6 @@
 package com.alan.framework.base.fragment;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.alan.framework.base.state.IBaseStateView;
@@ -50,6 +51,12 @@ public abstract class BaseStateFragment extends BaseFragment implements IStateCo
     @Override
     public void showFailureState(String text, boolean isRetry) {
         stateHelper.showFailureState(text, isRetry);
+        setRetryListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                retryListener(v);
+            }
+        });
     }
 
     @Override
@@ -74,6 +81,16 @@ public abstract class BaseStateFragment extends BaseFragment implements IStateCo
 
     @Override
     public void onDialogDismiss() {
+
+    }
+
+    @Override
+    public void setRetryListener(View.OnClickListener onClickListener) {
+        stateHelper.setRetryListener(onClickListener);
+    }
+
+    void retryListener(View v) {
+
 
     }
 }
