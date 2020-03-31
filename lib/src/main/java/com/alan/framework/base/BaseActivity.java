@@ -151,6 +151,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     }
 
     @Override
+    public void dismissLoadingDialog(boolean isSuccess, String text, LoadingDialog.OnDialogDismissListener onDialogDismissListener) {
+        stateHelper.dismissLoadingDialog(isSuccess, text, onDialogDismissListener);
+    }
+
+    @Override
     public void showToast(String text) {
         stateHelper.showToast(text);
     }

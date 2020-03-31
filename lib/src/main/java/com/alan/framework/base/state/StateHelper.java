@@ -35,7 +35,7 @@ public class StateHelper implements IBaseStateView {
             this.iStateConfig = iStateConfig;
             iStateView = initStateView(viewGroup);
         } catch (XmException e) {
-            Logger.error(e);
+//            Logger.error(e);
         }
     }
 
@@ -130,6 +130,11 @@ public class StateHelper implements IBaseStateView {
     @Override
     public void dismissImmediately() {
         loadingDialog.dismiss();
+    }
+
+    @Override
+    public void dismissLoadingDialog(boolean isSuccess, String text, LoadingDialog.OnDialogDismissListener onDialogDismissListener) {
+        loadingDialog.dismiss(text,isSuccess,onDialogDismissListener);
     }
 
 

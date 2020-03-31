@@ -2,6 +2,8 @@ package com.alan.framework.base.state;
 
 import android.view.View;
 
+import com.alan.framework.view.loading.LoadingDialog;
+
 /**
  * @author Alan
  * 时 间：2019-11-21
@@ -22,6 +24,8 @@ public interface IBaseStateView {
     void dismissLoadingDialog(boolean isSuccess);
 
     void dismissImmediately();
+
+    void dismissLoadingDialog(boolean isSuccess, String text, LoadingDialog.OnDialogDismissListener onDialogDismissListener);
 
     void showToast(String text);
 

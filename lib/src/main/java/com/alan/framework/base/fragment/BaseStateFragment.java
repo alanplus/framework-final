@@ -75,6 +75,11 @@ public abstract class BaseStateFragment extends BaseFragment implements IStateCo
     }
 
     @Override
+    public void dismissLoadingDialog(boolean isSuccess, String text, LoadingDialog.OnDialogDismissListener onDialogDismissListener) {
+        stateHelper.dismissLoadingDialog(isSuccess, text, onDialogDismissListener);
+    }
+
+    @Override
     public void dismissImmediately() {
         stateHelper.dismissImmediately();
     }
