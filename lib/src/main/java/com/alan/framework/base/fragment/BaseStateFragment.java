@@ -75,6 +75,11 @@ public abstract class BaseStateFragment extends BaseFragment implements IStateCo
     }
 
     @Override
+    public void dismissImmediately() {
+        stateHelper.dismissImmediately();
+    }
+
+    @Override
     public void showToast(String text) {
         stateHelper.showToast(text);
     }

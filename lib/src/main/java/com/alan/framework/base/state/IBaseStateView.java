@@ -21,6 +21,8 @@ public interface IBaseStateView {
 
     void dismissLoadingDialog(boolean isSuccess);
 
+    void dismissImmediately();
+
     void showToast(String text);
 
     void setRetryListener(View.OnClickListener onClickListener);

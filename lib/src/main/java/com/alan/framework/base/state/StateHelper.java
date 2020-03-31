@@ -128,6 +128,12 @@ public class StateHelper implements IBaseStateView {
     }
 
     @Override
+    public void dismissImmediately() {
+        loadingDialog.dismiss();
+    }
+
+
+    @Override
     public void showToast(String text) {
         ToastManager.getInstance().showToast(context, text);
     }
