@@ -113,12 +113,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     @Override
     public void showFailureState(String text, boolean isRetry) {
         stateHelper.showFailureState(text, isRetry);
-        setRetryListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                retryOnFailure(v);
-            }
-        });
+        stateHelper.setRetryListener(v -> retryOnFailure(v));
+    }
+
+    @Override
+    public void setRetryListener(View.OnClickListener onClickListener) {
+        stateHelper.setRetryListener(v -> retryOnFailure(v));
     }
 
     public void retryOnFailure(View v) {

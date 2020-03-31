@@ -145,4 +145,5 @@ public class UserClipPictureActivity extends BaseActivity implements OnClickList
         initBitmap();
     }
 
+
 }
