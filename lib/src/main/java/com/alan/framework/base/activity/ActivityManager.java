@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class ActivityManager {
 
-    private static List<Activity> activityList = new ArrayList<>();
+    public static List<Activity> activityList = new ArrayList<>();
 
 
     public static void onCreate(Activity activity) {
