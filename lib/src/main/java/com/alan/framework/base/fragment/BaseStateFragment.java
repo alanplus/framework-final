@@ -99,7 +99,7 @@ public abstract class BaseStateFragment extends BaseFragment implements IStateCo
         stateHelper.setRetryListener(onClickListener);
     }
 
-    void retryListener(View v) {
+    public void retryListener(View v) {
 
 
     }
