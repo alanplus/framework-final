@@ -18,6 +18,8 @@ import com.alan.framework.base.state.IStateConfig;
 import com.alan.framework.base.state.StateHelper;
 import com.alan.framework.view.loading.LoadingDialog;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * @author Alan
  * 时 间：2019-11-20
@@ -31,6 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentId());
+        registEventBus();
         ViewGroup viewGroup = (ViewGroup) ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
         stateHelper = new StateHelper(this, viewGroup, this);
         ActivityManager.onCreate(this);
@@ -75,6 +78,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        unregisterEventBus();
         ActivityManager.onDestroy(this);
     }
 
@@ -163,5 +167,21 @@ public abstract class BaseActivity extends AppCompatActivity implements IStateCo
     @Override
     public void onDialogDismiss() {
 
+    }
+
+    protected boolean configEventBus() {
+        return false;
+    }
+
+    public void registEventBus() {
+        if (configEventBus()) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    public void unregisterEventBus() {
+        if (configEventBus()) {
+            EventBus.getDefault().unregister(this);
+        }
     }
 }
