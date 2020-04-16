@@ -61,7 +61,7 @@ public abstract class BaseStateFragment extends BaseFragment implements IStateCo
 
     @Override
     public void showSuccessState() {
-        stateHelper.showLoadingState();
+        stateHelper.showSuccessState();
     }
 
     @Override
